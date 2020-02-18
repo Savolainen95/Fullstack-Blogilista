@@ -1,2 +1,2 @@
 # Fullstack-Blogilista
-Blogien lisääminen tietokantaan sallittu toistaiseksi vain testerille.
+Testit saatu toimiman tokeneiden kanssa. Kaikki tehtävät suoritettu.
