@@ -56,33 +56,99 @@ describe('Total likes...', () => {
 describe('Favorite blog...', () => {
   const listWithMultipleBlogs = [
     {
-      _id: '5a422aa71b54a676234d17f8',
       title: 'Go To Statement Considered Harmful',
       author: 'Edsger W. Dijkstra',
       url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
       likes: 5,
-      __v: 0
     },
     {
-      _id: '5a422aa71b54a676234d17f8',
       title: 'Go To Statement Considered Harmful',
       author: 'Edsger W. Dijkstra',
       url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
       likes: 3,
-      __v: 0
     },
     {
-      _id: '5a422aa71b54a676234d17f8',
       title: 'Go To Statement Considered Harmful',
-      author: 'Edsger W. Dijkstra',
+      author: 'Mikko Savolainen',
+      url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+      likes: 3,
+    },
+    {
+      title: 'Go To Statement Considered Harmful',
+      author: 'Mikko Savolainen',
+      url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+      likes: 3,
+    },
+    {
+      title: 'Go To Statement Considered Harmful',
+      author: 'Mikko Savolainen',
+      url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+      likes: 3,
+    },
+    {
+      title: 'Go To Statement Considered Harmful',
+      author: 'Mikko Savolainen',
       url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
       likes: 14,
-      __v: 0
     }
   ]
 
   test('was found correctly', () => {
     const result = listHelper.favoriteBlog(listWithMultipleBlogs)
-    expect(result).toEqual(listWithMultipleBlogs[2])
+    expect(result).toEqual(listWithMultipleBlogs[5])
+  })
+})
+describe("Author...", () => {
+  const listWithMultipleBlogs = [
+    {
+      title: 'Go To Statement Considered Harmful',
+      author: 'Edsger W. Dijkstra',
+      url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+      likes: 5,
+    },
+    {
+      title: 'Go To Statement Considered Harmful',
+      author: 'Edsger W. Dijkstra',
+      url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+      likes: 3,
+    },
+    {
+      title: 'Go To Statement Considered Harmful',
+      author: 'Mikko Savolainen',
+      url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+      likes: 3,
+    },
+    {
+      title: 'Go To Statement Considered Harmful',
+      author: 'Mikko Savolainen',
+      url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+      likes: 3,
+    },
+    {
+      title: 'Go To Statement Considered Harmful',
+      author: 'Mikko Savolainen',
+      url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+      likes: 3,
+    },
+    {
+      title: 'Go To Statement Considered Harmful',
+      author: 'Mikko Savolainen',
+      url: 'http://www.u.arizona.edu/~rubinson/copyright_violations/Go_To_Considered_Harmful.html',
+      likes: 14,
+    }
+  ]
+
+  test('...with most blogs', () => {
+    const most = listHelper.mostBlogs(listWithMultipleBlogs)
+
+    expect(most.author).toBe(listWithMultipleBlogs[2].author)
+    expect(most.blogs).toBe(4)
+  })
+  test('...with most likes', () => {
+    const most = listHelper.mostLikes(listWithMultipleBlogs)
+
+    expect(most.author).toBe(listWithMultipleBlogs[2].author)
+    expect(most.likes).toBe(23)
+
   })
 })
