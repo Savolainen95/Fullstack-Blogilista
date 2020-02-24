@@ -76,6 +76,7 @@ blogsRouter.delete('/:id', async (request, response, next) => {
 
 blogsRouter.put('/:id', async (request, response, next) => {
   const body = request.body
+  
 
   const blog1 = await Blog.findById(request.params.id)
 
@@ -84,9 +85,10 @@ blogsRouter.put('/:id', async (request, response, next) => {
     author: body.author || blog1.author,
     url: body.url || blog1.url,
     likes: body.likes === undefined ? 0 : body.likes,
-    user: user._id || blog1.user._id
+    user: body.user || blog1.user._id
   }
 
+  
   const updated = await Blog.findByIdAndUpdate(
     request.params.id,
     blog,
